@@ -1,0 +1,35 @@
+os: osx
+osx_image: xcode9
+language: objective-c
+
+matrix:
+  include:
+  - env: PLATFORM="iOS" TEST="simulator" TEST_DEVICE="iPhone-6s" TEST_RUNTIME="iOS-9-3" SCHEME="Crypto-iOS" DEPLOY="false"
+  - env: PLATFORM="iOS" TEST="simulator" TEST_DEVICE="iPhone-6s" TEST_RUNTIME="iOS-10-3" SCHEME="Crypto-iOS" DEPLOY="false"
+  - env: PLATFORM="iOS" TEST="simulator" TEST_DEVICE="iPhone-6s" TEST_RUNTIME="iOS-11-0" SCHEME="Crypto-iOS" DEPLOY="false"
+  - env: PLATFORM="tvOS" TEST="simulator" TEST_DEVICE="Apple-TV-1080p" TEST_RUNTIME="tvOS-11-0" SCHEME="Crypto-tvOS" DEPLOY="false"
+  - env: PLATFORM="watchOS" TEST="none" SCHEME="Crypto-watchOS" DEPLOY="false"
+  - env: PLATFORM="macOS" TEST="device" DESTINATION="arch=x86_64" SCHEME="Crypto-macOS" DEPLOY="true" FRAMEWORK_NAME="Crypto"
+
+before_install:
+  - brew update
+  - gem install cocoapods xcpretty
+  - brew outdated carthage && brew install carthage
+
+script:
+  - set -o pipefail && bash ./.ci/test.sh
+
+before_deploy:
+  - carthage build --no-skip-current
+  - carthage archive $FRAMEWORK_NAME
+
+deploy:
+  provider: releases
+  api_key:
+    secure: tTPTBCONwAiupOTG/QEJtX2XABwWc7pCw/c/1eKpaZKRoRmsgELUwwwATkO8NPk2KhAleqLp9fdmfiNyH2rZMP0bmReI5mzsP1h6aOdlMP+Eykot/4U62BUdJlahsr4UF7uHKpxw41T7Mj0Uacv9xYovVLw+/4j+DzYWVCN0df8DeHI7GwmLjuk4Cdp9d1wvL78yRPe68HScyYu5pm6xgv0scuLaN7irpuw/jAWIRuaC3PB4Xt8m2QjdYbZ8qCA+B14B8ngSr7NLyZw6SjlIn6ejYR8+bQp+iBxCBoahhSZDrihwXHxktRl7s2zq48oJktPRwspDCllFCyy1AId88WWOLsfDGWhKAJpmdztpzHvaIpATpGWc1+ztyERLLC21IRLgt3YPT+VvV6dbEvozZjvSWR2xvPmtQQAJEqQmqfVgFjprsGKTJYnWaKoOfeflcQOYETXCg2YwOIcVehvPBBjiH6uFaPendmCvSW6OHbtxxYktvLKkCVr1iloKYdleInG6Pu22XbDuGrxTYwhjARlInepIWjNPlsYFhjwRe0fRfWDYquzin2i7OYjfPfPaksZV+WNs3vNAApxjbLTyJlNP/w6qhLK01bbfEIpzdMXuCzA0jdgpZeUwhyf6UyxGWNkfHjECIvtIf6xh7IUNc6hEBARlaikp8FQhFRys168=
+  file: "$FRAMEWORK_NAME.framework.zip"
+  skip_cleanup: true
+  on:
+    repo: alexaubry/Crypto
+    tags: true
+    condition: $DEPLOY = true
