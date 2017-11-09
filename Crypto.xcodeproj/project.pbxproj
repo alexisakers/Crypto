@@ -7,6 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		552A721C1FB439E400190AB7 /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A721B1FB439E400190AB7 /* Digest.swift */; };
+		552A721D1FB439E400190AB7 /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A721B1FB439E400190AB7 /* Digest.swift */; };
+		552A721E1FB439E400190AB7 /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A721B1FB439E400190AB7 /* Digest.swift */; };
+		552A721F1FB439E400190AB7 /* Digest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A721B1FB439E400190AB7 /* Digest.swift */; };
+		552A72211FB43DE000190AB7 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72201FB43DE000190AB7 /* Random.swift */; };
+		552A72221FB43DE000190AB7 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72201FB43DE000190AB7 /* Random.swift */; };
+		552A72231FB43DE000190AB7 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72201FB43DE000190AB7 /* Random.swift */; };
+		552A72241FB43DE000190AB7 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72201FB43DE000190AB7 /* Random.swift */; };
+		552A72261FB43FC500190AB7 /* RandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72251FB43FC500190AB7 /* RandomTests.swift */; };
+		552A72271FB43FC500190AB7 /* RandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72251FB43FC500190AB7 /* RandomTests.swift */; };
+		552A72281FB43FC500190AB7 /* RandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72251FB43FC500190AB7 /* RandomTests.swift */; };
+		552A722A1FB441FE00190AB7 /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72291FB441FE00190AB7 /* CryptoError.swift */; };
+		552A722B1FB441FE00190AB7 /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72291FB441FE00190AB7 /* CryptoError.swift */; };
+		552A722C1FB441FE00190AB7 /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72291FB441FE00190AB7 /* CryptoError.swift */; };
+		552A722D1FB441FE00190AB7 /* CryptoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72291FB441FE00190AB7 /* CryptoError.swift */; };
+		552A722F1FB445B500190AB7 /* KeyDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A722E1FB445B500190AB7 /* KeyDerivation.swift */; };
+		552A72301FB445B500190AB7 /* KeyDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A722E1FB445B500190AB7 /* KeyDerivation.swift */; };
+		552A72311FB445B500190AB7 /* KeyDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A722E1FB445B500190AB7 /* KeyDerivation.swift */; };
+		552A72321FB445B500190AB7 /* KeyDerivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A722E1FB445B500190AB7 /* KeyDerivation.swift */; };
+		552A72341FB456FE00190AB7 /* KeyDerivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72331FB456FE00190AB7 /* KeyDerivationTests.swift */; };
+		552A72351FB456FE00190AB7 /* KeyDerivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72331FB456FE00190AB7 /* KeyDerivationTests.swift */; };
+		552A72361FB456FE00190AB7 /* KeyDerivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72331FB456FE00190AB7 /* KeyDerivationTests.swift */; };
+		552A72381FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72371FB45C7500190AB7 /* PBKDF2TestData.swift */; };
+		552A72391FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72371FB45C7500190AB7 /* PBKDF2TestData.swift */; };
+		552A723A1FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72371FB45C7500190AB7 /* PBKDF2TestData.swift */; };
+		552A723D1FB4669400190AB7 /* DigestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A723C1FB4669400190AB7 /* DigestTests.swift */; };
+		552A723E1FB4669400190AB7 /* DigestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A723C1FB4669400190AB7 /* DigestTests.swift */; };
+		552A723F1FB4669400190AB7 /* DigestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A723C1FB4669400190AB7 /* DigestTests.swift */; };
+		552A72411FB466F400190AB7 /* HashTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72401FB466F400190AB7 /* HashTestData.swift */; };
+		552A72421FB466F400190AB7 /* HashTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72401FB466F400190AB7 /* HashTestData.swift */; };
+		552A72431FB466F400190AB7 /* HashTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72401FB466F400190AB7 /* HashTestData.swift */; };
 		553278A41FB1AB05009320F3 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5562B4BB1FB08BB1000E0F88 /* HMAC.swift */; };
 		553278B81FB1ABA0009320F3 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5562B4BB1FB08BB1000E0F88 /* HMAC.swift */; };
 		553278BF1FB1ABC4009320F3 /* Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 5562B4971FB087FE000E0F88 /* Crypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +85,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		552A721B1FB439E400190AB7 /* Digest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digest.swift; sourceTree = "<group>"; };
+		552A72201FB43DE000190AB7 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		552A72251FB43FC500190AB7 /* RandomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTests.swift; sourceTree = "<group>"; };
+		552A72291FB441FE00190AB7 /* CryptoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoError.swift; sourceTree = "<group>"; };
+		552A722E1FB445B500190AB7 /* KeyDerivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDerivation.swift; sourceTree = "<group>"; };
+		552A72331FB456FE00190AB7 /* KeyDerivationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDerivationTests.swift; sourceTree = "<group>"; };
+		552A72371FB45C7500190AB7 /* PBKDF2TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBKDF2TestData.swift; sourceTree = "<group>"; };
+		552A723C1FB4669400190AB7 /* DigestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestTests.swift; sourceTree = "<group>"; };
+		552A72401FB466F400190AB7 /* HashTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTestData.swift; sourceTree = "<group>"; };
 		5532789C1FB1AAA1009320F3 /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553278B01FB1AB76009320F3 /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553278C61FB1ABDF009320F3 /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +166,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		552A723B1FB45CC800190AB7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				552A72401FB466F400190AB7 /* HashTestData.swift */,
+				5562B4BD1FB08F45000E0F88 /* HMACTestData.swift */,
+				552A72371FB45C7500190AB7 /* PBKDF2TestData.swift */,
+				5562B4C01FB0A01D000E0F88 /* TestUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		553278D61FB1ACAD009320F3 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +214,11 @@
 			isa = PBXGroup;
 			children = (
 				5562B4971FB087FE000E0F88 /* Crypto.h */,
+				552A721B1FB439E400190AB7 /* Digest.swift */,
 				5562B4BB1FB08BB1000E0F88 /* HMAC.swift */,
+				552A722E1FB445B500190AB7 /* KeyDerivation.swift */,
+				552A72201FB43DE000190AB7 /* Random.swift */,
+				552A72291FB441FE00190AB7 /* CryptoError.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -171,9 +226,11 @@
 		5562B4A11FB087FE000E0F88 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				552A723C1FB4669400190AB7 /* DigestTests.swift */,
 				5562B4A21FB087FE000E0F88 /* HMACTests.swift */,
-				5562B4BD1FB08F45000E0F88 /* HMACTestData.swift */,
-				5562B4C01FB0A01D000E0F88 /* TestUtilities.swift */,
+				552A72331FB456FE00190AB7 /* KeyDerivationTests.swift */,
+				552A72251FB43FC500190AB7 /* RandomTests.swift */,
+				552A723B1FB45CC800190AB7 /* Utilities */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -464,6 +521,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				553278A41FB1AB05009320F3 /* HMAC.swift in Sources */,
+				552A721D1FB439E400190AB7 /* Digest.swift in Sources */,
+				552A72301FB445B500190AB7 /* KeyDerivation.swift in Sources */,
+				552A72221FB43DE000190AB7 /* Random.swift in Sources */,
+				552A722B1FB441FE00190AB7 /* CryptoError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +533,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				553278B81FB1ABA0009320F3 /* HMAC.swift in Sources */,
+				552A721E1FB439E400190AB7 /* Digest.swift in Sources */,
+				552A72311FB445B500190AB7 /* KeyDerivation.swift in Sources */,
+				552A72231FB43DE000190AB7 /* Random.swift in Sources */,
+				552A722C1FB441FE00190AB7 /* CryptoError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +545,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				553278CE1FB1AC1A009320F3 /* HMAC.swift in Sources */,
+				552A721F1FB439E400190AB7 /* Digest.swift in Sources */,
+				552A72321FB445B500190AB7 /* KeyDerivation.swift in Sources */,
+				552A72241FB43DE000190AB7 /* Random.swift in Sources */,
+				552A722D1FB441FE00190AB7 /* CryptoError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,8 +556,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552A72271FB43FC500190AB7 /* RandomTests.swift in Sources */,
+				552A723E1FB4669400190AB7 /* DigestTests.swift in Sources */,
+				552A72351FB456FE00190AB7 /* KeyDerivationTests.swift in Sources */,
+				552A72421FB466F400190AB7 /* HashTestData.swift in Sources */,
 				553278F71FB1AE83009320F3 /* HMACTests.swift in Sources */,
 				553278FE1FB1AE83009320F3 /* TestUtilities.swift in Sources */,
+				552A72391FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */,
 				553278FC1FB1AE83009320F3 /* HMACTestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,8 +571,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552A72281FB43FC500190AB7 /* RandomTests.swift in Sources */,
+				552A723F1FB4669400190AB7 /* DigestTests.swift in Sources */,
+				552A72361FB456FE00190AB7 /* KeyDerivationTests.swift in Sources */,
+				552A72431FB466F400190AB7 /* HashTestData.swift in Sources */,
 				553278FF1FB1AE84009320F3 /* HMACTests.swift in Sources */,
 				553279061FB1AE84009320F3 /* TestUtilities.swift in Sources */,
+				552A723A1FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */,
 				553279041FB1AE84009320F3 /* HMACTestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +587,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5562B4BC1FB08BB1000E0F88 /* HMAC.swift in Sources */,
+				552A721C1FB439E400190AB7 /* Digest.swift in Sources */,
+				552A722F1FB445B500190AB7 /* KeyDerivation.swift in Sources */,
+				552A72211FB43DE000190AB7 /* Random.swift in Sources */,
+				552A722A1FB441FE00190AB7 /* CryptoError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,8 +598,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552A72261FB43FC500190AB7 /* RandomTests.swift in Sources */,
+				552A723D1FB4669400190AB7 /* DigestTests.swift in Sources */,
+				552A72341FB456FE00190AB7 /* KeyDerivationTests.swift in Sources */,
+				552A72411FB466F400190AB7 /* HashTestData.swift in Sources */,
 				5562B4C11FB0A01D000E0F88 /* TestUtilities.swift in Sources */,
 				5562B4A31FB087FE000E0F88 /* HMACTests.swift in Sources */,
+				552A72381FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */,
 				5562B4BF1FB08F4A000E0F88 /* HMACTestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

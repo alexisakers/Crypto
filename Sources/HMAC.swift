@@ -17,16 +17,16 @@ public enum HMAC: Int {
     /// The HMAC-SHA-1 algorithm.
     case sha1 = 1
 
-    /// The HMAC-SHA-1 algorithm.
+    /// The HMAC-SHA-224 algorithm.
     case sha224 = 224
 
-    /// The HMAC-SHA-1 algorithm.
+    /// The HMAC-SHA-256 algorithm.
     case sha256 = 256
 
-    /// The HMAC-SHA-1 algorithm.
+    /// The HMAC-SHA-384 algorithm.
     case sha384 = 384
 
-    /// The HMAC-SHA-1 algorithm.
+    /// The HMAC-SHA-512 algorithm.
     case sha512 = 512
 
 }
