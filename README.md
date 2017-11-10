@@ -34,7 +34,7 @@ Crypto supports the following operations:
 - [HMAC](#hmac)
 - [Key Derivation - PBKDF2](#key-derivation)
 - [Symmetric Key Wrap](#key-wrap)
-- [Encryption / Decryption](#encryption-decryption)
+- [Encryption / Decryption](#encryption-and-decryption)
 
 ### Digests
 
@@ -71,7 +71,7 @@ Use the `KeyDerivation` enum to calibrate and derive passwords with the `PBKDF2`
 
 Use the `SymmetricKeyWrap` enum to wrap and unwrap keys with an encryption key.
 
-## Encryption / Decryption
+## Encryption and Decryption
 
 Use the `Cryptor` enum to encrypt and decrypt data.
 
