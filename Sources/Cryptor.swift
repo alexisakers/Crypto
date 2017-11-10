@@ -34,7 +34,7 @@ public enum Cryptor {
 extension Cryptor {
 
     /// The raw algorith identifier for use with CommonCrypto.
-    private var algorithm: CCAlgorithm {
+    fileprivate var algorithm: CCAlgorithm {
 
         switch self {
         case .aes128, .aes192, .aes256: return CCAlgorithm(kCCAlgorithmAES)

@@ -36,7 +36,7 @@ public enum HMAC: Int {
 extension HMAC {
 
     /// The raw algorithm identifier for CommonCrypto.
-    private var algorithm: CCHmacAlgorithm {
+    fileprivate var algorithm: CCHmacAlgorithm {
 
         switch self {
         case .sha1: return CCHmacAlgorithm(kCCHmacAlgSHA1)

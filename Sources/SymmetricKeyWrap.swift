@@ -23,7 +23,7 @@ public enum SymmetricKeyWrap {
 extension SymmetricKeyWrap {
 
     /// The raw algorithm identifier for CommonCrypto.
-    private var algorithm: CCWrappingAlgorithm {
+    fileprivate var algorithm: CCWrappingAlgorithm {
 
         switch self {
         case .aes: return CCWrappingAlgorithm(kCCWRAPAES)

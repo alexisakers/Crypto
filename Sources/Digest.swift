@@ -44,7 +44,7 @@ private typealias DigestFunction = (UnsafeRawPointer?, CC_LONG, UnsafeMutablePoi
 extension Digest {
 
     /// The function to use to produce the digests.
-    private var hashFunction: DigestFunction {
+    fileprivate var hashFunction: DigestFunction {
 
         switch self {
         case .md4: return CC_MD4

@@ -50,7 +50,7 @@ public enum KeyDerivation {
 extension KeyDerivation {
 
     /// The raw algorithm identifier for CommonCrypto.
-    private var algorithm: CCPBKDFAlgorithm {
+    fileprivate var algorithm: CCPBKDFAlgorithm {
 
         switch self {
         case .pbkdf2: return CCPBKDFAlgorithm(kCCPBKDF2)
