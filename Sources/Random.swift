@@ -8,16 +8,10 @@ import CommonCrypto
 import Security
 
 /**
- * Random bytes generators.
+ * A generic random bytes generators.
  */
 
-public enum Random {
-
-    /// The CommonCrypto random bytes generator.
-    case commonCrypto
-
-    /// The Security.framework random bytes generator.
-    case security
+public protocol Random {
 
     /**
      * Generates the specified number of random bytes and throws an error in case of failure.
@@ -27,27 +21,49 @@ public enum Random {
      * - returns: A Data buffer filled with the random bytes.
      */
 
-    public func generate(bytes: Int) throws -> Data {
+    static func generate(bytes: Int) throws -> Data
 
-        let bytesAlignment = MemoryLayout<UInt8>.alignment
-        let outputBytes = UnsafeMutableRawPointer.allocate(bytes: bytes, alignedTo: bytesAlignment)
+}
 
-        defer {
-            outputBytes.deallocate(bytes: bytes, alignedTo: bytesAlignment)
-        }
+/**
+ * The CommonCrypto random bytes generator.
+ */
 
-        switch self {
-        case .commonCrypto:
+public enum CommonRandom: Random {
 
-            let status = CCRandomGenerateBytes(outputBytes, bytes)
+    public static func generate(bytes: Int) throws -> Data {
+
+        var buffer = Data(count: bytes)
+
+        try buffer.withUnsafeMutableBytes { (ptr: UnsafeMutablePointer<UInt8>) in
+
+            let status = CCRandomGenerateBytes(UnsafeMutableRawPointer(ptr), bytes)
 
             if let error = CryptoError(status: status) {
                 throw error
             }
 
-        case .security:
+        }
 
-            let status = SecRandomCopyBytes(kSecRandomDefault, bytes, outputBytes)
+        return buffer
+
+    }
+
+}
+
+/**
+ * The Security.framework random bytes generator.
+ */
+
+public enum SecRandom: Random {
+
+    public static func generate(bytes: Int) throws -> Data {
+
+        var buffer = Data(count: bytes)
+
+        try buffer.withUnsafeMutableBytes { (ptr: UnsafeMutablePointer<UInt8>) in
+
+            let status = SecRandomCopyBytes(kSecRandomDefault, bytes, UnsafeMutableRawPointer(ptr))
 
             guard status == errSecSuccess else {
                 throw CryptoError.unknownStatus(status)
@@ -55,8 +71,7 @@ public enum Random {
 
         }
 
-        let randomBytes = UnsafeRawPointer(outputBytes)
-        return Data(bytes: randomBytes, count: bytes)
+        return buffer
 
     }
 
