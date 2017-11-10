@@ -17,7 +17,7 @@ class RandomTests: XCTestCase {
      */
 
     func testCommonCrypto() throws {
-        let randomBytes = try Random.commonCrypto.generate(bytes: 128)
+        let randomBytes = try CommonRandom.generate(bytes: 128)
         XCTAssertEqual(randomBytes.count, 128)
     }
 
@@ -26,7 +26,7 @@ class RandomTests: XCTestCase {
      */
 
     func testSecurity() throws {
-        let randomBytes = try Random.security.generate(bytes: 128)
+        let randomBytes = try SecRandom.generate(bytes: 128)
         XCTAssertEqual(randomBytes.count, 128)
     }
 
