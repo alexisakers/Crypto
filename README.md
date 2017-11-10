@@ -28,7 +28,15 @@ Crypto cannot be installed with Carthage yet. Please read [#1](https://github.co
 
 ## Usage
 
-### Digest
+Crypto supports the following operations:
+
+- [Digests](#digests)
+- [HMAC](#hmac)
+- [Key Derivation - PBKDF2](#key-derivation)
+- [Symmetric Key Wrap](#key-wrap)
+- [Encryption / Decryption](#encryption-decryption)
+
+### Digests
 
 Use the `Digest` enum to compute the hash of messages.
 
