@@ -52,29 +52,21 @@ extension SymmetricKeyWrap {
     public func wrap(key: Data, encryptionKey: Data) throws -> Data {
 
         let outputSize = CCSymmetricWrappedSize(algorithm, key.count)
-        let outputBytes = UnsafeMutablePointer<UInt8>.allocate(capacity: outputSize)
-
-        defer {
-            outputBytes.deallocate(capacity: outputSize)
-        }
+        var buffer = Data(count: outputSize)
 
         var wrappedKeyLength = outputSize
 
-        let result = encryptionKey.withUnsafeBytes { (encryptionKeyBytes: UnsafePointer<UInt8>) in
+        let result = buffer.write(withPointerTo: encryptionKey, key) { bufferPtr, encryptionKeyPtr, keyPtr in
 
-            key.withUnsafeBytes { (keyBytes: UnsafePointer<UInt8>) in
-
-                CCSymmetricKeyWrap(algorithm,
-                                   CCrfc3394_iv,
-                                   CCrfc3394_ivLen,
-                                   encryptionKeyBytes,
-                                   encryptionKey.count,
-                                   keyBytes,
-                                   key.count,
-                                   outputBytes,
-                                   &wrappedKeyLength)
-
-            }
+            CCSymmetricKeyWrap(self.algorithm,
+                               CCrfc3394_iv,
+                               CCrfc3394_ivLen,
+                               encryptionKeyPtr,
+                               encryptionKey.count,
+                               keyPtr,
+                               key.count,
+                               bufferPtr,
+                               &wrappedKeyLength)
 
         }
 
@@ -82,8 +74,7 @@ extension SymmetricKeyWrap {
             throw error
         }
 
-        let wrappedKeyBytes = UnsafeRawPointer(outputBytes)
-        return Data(bytes: wrappedKeyBytes, count: wrappedKeyLength)
+        return buffer.prefix(upTo: wrappedKeyLength)
 
     }
 
@@ -102,29 +93,21 @@ extension SymmetricKeyWrap {
     public func unwrap(key: Data, encryptionKey: Data) throws -> Data {
 
         let outputSize = CCSymmetricUnwrappedSize(algorithm, key.count)
-        let outputBytes = UnsafeMutablePointer<UInt8>.allocate(capacity: outputSize)
+        var buffer = Data(count: outputSize)
 
-        defer {
-            outputBytes.deallocate(capacity: outputSize)
-        }
+        var unwrappedKeyLength = outputSize
 
-        var unwrappedKeySize = outputSize
+        let result = buffer.write(withPointerTo: encryptionKey, key) { bufferPtr, encryptionKeyPtr, keyPtr in
 
-        let result = encryptionKey.withUnsafeBytes { (encryptionKeyBytes: UnsafePointer<UInt8>) in
-
-            key.withUnsafeBytes { (keyBytes: UnsafePointer<UInt8>) in
-
-                CCSymmetricKeyUnwrap(algorithm,
-                                     CCrfc3394_iv,
-                                     CCrfc3394_ivLen,
-                                     encryptionKeyBytes,
-                                     encryptionKey.count,
-                                     keyBytes,
-                                     key.count,
-                                     outputBytes,
-                                     &unwrappedKeySize)
-
-            }
+            CCSymmetricKeyUnwrap(self.algorithm,
+                                 CCrfc3394_iv,
+                                 CCrfc3394_ivLen,
+                                 encryptionKeyPtr,
+                                 encryptionKey.count,
+                                 keyPtr,
+                                 key.count,
+                                 bufferPtr,
+                                 &unwrappedKeyLength)
 
         }
 
@@ -132,8 +115,7 @@ extension SymmetricKeyWrap {
             throw error
         }
 
-        let unwrappedKeyBytes = UnsafeRawPointer(outputBytes)
-        return Data(bytes: unwrappedKeyBytes, count: unwrappedKeySize)
+        return buffer.prefix(upTo: unwrappedKeyLength)
 
     }
 

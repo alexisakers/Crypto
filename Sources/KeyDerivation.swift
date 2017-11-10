@@ -134,21 +134,17 @@ extension KeyDerivation {
         switch self {
         case .pbkdf2(let pseudoRandom):
 
-            let outputBytes = UnsafeMutablePointer<UInt8>.allocate(capacity: derivedKeyLength)
+            var buffer = Data(count: derivedKeyLength)
 
-            defer {
-                outputBytes.deallocate(capacity: derivedKeyLength)
-            }
+            let result = buffer.write(withPointerTo: salt) { bufferPtr, saltPtr in
 
-            let result = password.withCString { passwordPointer in
+                password.withCString { passwordPtr in
 
-                salt.withUnsafeBytes { (saltBytes: UnsafePointer<UInt8>) in
-
-                    return CCKeyDerivationPBKDF(algorithm, passwordPointer, password.utf8.count,
-                                                      saltBytes, salt.count,
-                                                      pseudoRandom.algorithm,
-                                                      rounds,
-                                                      outputBytes, derivedKeyLength)
+                    return CCKeyDerivationPBKDF(self.algorithm, passwordPtr, password.utf8.count,
+                                                saltPtr, salt.count,
+                                                pseudoRandom.algorithm,
+                                                rounds,
+                                                bufferPtr, derivedKeyLength)
 
                 }
 
@@ -158,8 +154,7 @@ extension KeyDerivation {
                 throw error
             }
 
-            let derivedKeyBytes = UnsafeRawPointer(outputBytes)
-            return Data(bytes: derivedKeyBytes, count: derivedKeyLength)
+            return buffer
 
         }
 

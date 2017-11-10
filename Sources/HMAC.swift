@@ -78,32 +78,20 @@ extension HMAC {
 
     public func authenticate(_ message: Data, with key: Data) -> Data {
 
-        let bytesAlignment = MemoryLayout<UInt8>.alignment
+        var buffer = Data(count: digestLength)
 
-        let outputBytes = UnsafeMutableRawPointer.allocate(bytes: digestLength,
-                                                           alignedTo: bytesAlignment)
+        buffer.write(withPointerTo: message, key) { bufferPtr, messageBytes, keyBytes in
 
-        defer {
-            outputBytes.deallocate(bytes: digestLength, alignedTo: bytesAlignment)
-        }
-
-        message.withUnsafeBytes { (messageBytes: UnsafePointer<UInt8>) in
-
-            key.withUnsafeBytes { (keyBytes: UnsafePointer<UInt8>) in
-
-                CCHmac(self.algorithm,
-                       UnsafeRawPointer(keyBytes),
-                       key.count,
-                       UnsafeRawPointer(messageBytes),
-                       message.count,
-                       outputBytes)
-
-            }
+            CCHmac(self.algorithm,
+                    UnsafeRawPointer(keyBytes),
+                    key.count,
+                    UnsafeRawPointer(messageBytes),
+                    message.count,
+                    UnsafeMutableRawPointer(bufferPtr))
 
         }
 
-        let hashBytes = UnsafeRawPointer(outputBytes)
-        return Data(bytes: hashBytes, count: digestLength)
+        return buffer
 
     }
 

@@ -88,19 +88,15 @@ extension Digest {
 
     public func hash(message: Data) -> Data {
 
-        var outputBytes = UnsafeMutablePointer<UInt8>.allocate(capacity: length)
+        var buffer = Data(count: length)
 
-        defer {
-            outputBytes.deallocate(capacity: length)
-        }
-
-        message.withUnsafeBytes { (messageBytes: UnsafePointer<UInt8>) in
+        buffer.write(withPointerTo: message) { bufferPtr, messageBytes in
             let messagePtr = UnsafeRawPointer(messageBytes)
-            outputBytes = self.hashFunction(messagePtr , CC_LONG(message.count), outputBytes)
+            let resultPtr = self.hashFunction(messagePtr , CC_LONG(message.count), bufferPtr)!
+            bufferPtr.assign(from: resultPtr, count: self.length)
         }
 
-        let hashBytes = UnsafeRawPointer(outputBytes)
-        return Data(bytes: hashBytes, count: length)
+        return buffer
 
     }
 
