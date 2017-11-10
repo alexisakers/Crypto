@@ -59,6 +59,9 @@
 		552A72621FB5CC7900190AB7 /* Crypto+Unsafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72601FB5CC7900190AB7 /* Crypto+Unsafe.swift */; };
 		552A72631FB5CC7900190AB7 /* Crypto+Unsafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72601FB5CC7900190AB7 /* Crypto+Unsafe.swift */; };
 		552A72641FB5CC7900190AB7 /* Crypto+Unsafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72601FB5CC7900190AB7 /* Crypto+Unsafe.swift */; };
+		552A72661FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72651FB5E0C200190AB7 /* SymmetricTestData.swift */; };
+		552A72671FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72651FB5E0C200190AB7 /* SymmetricTestData.swift */; };
+		552A72681FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72651FB5E0C200190AB7 /* SymmetricTestData.swift */; };
 		553278A41FB1AB05009320F3 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5562B4BB1FB08BB1000E0F88 /* HMAC.swift */; };
 		553278B81FB1ABA0009320F3 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5562B4BB1FB08BB1000E0F88 /* HMAC.swift */; };
 		553278BF1FB1ABC4009320F3 /* Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 5562B4971FB087FE000E0F88 /* Crypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,6 +124,7 @@
 		552A72511FB481AB00190AB7 /* Cryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptor.swift; sourceTree = "<group>"; };
 		552A725C1FB5B67A00190AB7 /* CryptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptorTests.swift; sourceTree = "<group>"; };
 		552A72601FB5CC7900190AB7 /* Crypto+Unsafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Crypto+Unsafe.swift"; sourceTree = "<group>"; };
+		552A72651FB5E0C200190AB7 /* SymmetricTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymmetricTestData.swift; sourceTree = "<group>"; };
 		5532789C1FB1AAA1009320F3 /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553278B01FB1AB76009320F3 /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553278C61FB1ABDF009320F3 /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +200,7 @@
 		552A723B1FB45CC800190AB7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				552A72651FB5E0C200190AB7 /* SymmetricTestData.swift */,
 				552A72401FB466F400190AB7 /* HashTestData.swift */,
 				5562B4BD1FB08F45000E0F88 /* HMACTestData.swift */,
 				552A72371FB45C7500190AB7 /* PBKDF2TestData.swift */,
@@ -607,6 +612,7 @@
 				553278F71FB1AE83009320F3 /* HMACTests.swift in Sources */,
 				553278FE1FB1AE83009320F3 /* TestUtilities.swift in Sources */,
 				552A724F1FB47DD000190AB7 /* KeyWrapTests.swift in Sources */,
+				552A72671FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */,
 				552A72391FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */,
 				553278FC1FB1AE83009320F3 /* HMACTestData.swift in Sources */,
 			);
@@ -625,6 +631,7 @@
 				553278FF1FB1AE84009320F3 /* HMACTests.swift in Sources */,
 				553279061FB1AE84009320F3 /* TestUtilities.swift in Sources */,
 				552A72501FB47DD000190AB7 /* KeyWrapTests.swift in Sources */,
+				552A72681FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */,
 				552A723A1FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */,
 				553279041FB1AE84009320F3 /* HMACTestData.swift in Sources */,
 			);
@@ -658,6 +665,7 @@
 				5562B4C11FB0A01D000E0F88 /* TestUtilities.swift in Sources */,
 				5562B4A31FB087FE000E0F88 /* HMACTests.swift in Sources */,
 				552A724E1FB47DD000190AB7 /* KeyWrapTests.swift in Sources */,
+				552A72661FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */,
 				552A72381FB45C7500190AB7 /* PBKDF2TestData.swift in Sources */,
 				5562B4BF1FB08F4A000E0F88 /* HMACTestData.swift in Sources */,
 			);

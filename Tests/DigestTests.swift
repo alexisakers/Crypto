@@ -7,7 +7,7 @@ import XCTest
 @testable import Crypto
 
 /**
- * A test case that checks the hashing algorithm with public test vector.
+ * A test case that checks the hashing algorithm.
  */
 
 class DigestTests: XCTestCase {

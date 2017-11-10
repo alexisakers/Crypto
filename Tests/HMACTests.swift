@@ -7,7 +7,7 @@ import XCTest
 @testable import Crypto
 
 /**
- * A test case that checks the HMAC algorithm with public test vector.
+ * A test case that checks the HMAC algorithm.
  */
 
 class HMACTests: XCTestCase {
