@@ -93,14 +93,16 @@ extension Cryptor {
      * - parameter key: The raw encryption key bytes.
      * - parameter iv: The initialization vector. Must be the same size as the
      * algorithm's block size (see `blockSize`). Always use random data as the `iv`.
+     * - parameter usePKCS7: Whether to use PKCS7 padding. Defaults to `true`. Set this to `false` if
+     * your have added custom padding.
      *
      * - throws: In case of failure, this method throws a `CryptoError` object.
      * - returns: A Data buffer containing the encrypted bytes.
      */
 
-    public func encrypt(data: Data, withKey key: Data, iv: Data) throws -> Data {
+    public func encrypt(data: Data, withKey key: Data, iv: Data, usePKCS7: Bool = true) throws -> Data {
         let outputSize = data.count + blockSize
-        return try crypt(kCCEncrypt, data, key, iv, outputSize)
+        return try crypt(kCCEncrypt, data, key, iv, outputSize, usePKCS7: usePKCS7)
     }
 
     /**
@@ -112,17 +114,19 @@ extension Cryptor {
      * - parameter key: The raw encryption key bytes.
      * - parameter iv: The initialization vector used to encrypt the data. Must be the same size
      * as the algorithm's block size (see `blockSize`).
+     * - parameter usePKCS7: Whether PKCS7 padding has been used to encrypt the data. Defaults to `true`.
+     * Set this to `false` if your have added custom padding.
      *
      * - throws: In case of failure, this method throws a `CryptoError` object.
      * - returns: A Data buffer containing the decrypted bytes.
      */
 
-    public func decrypt(data: Data, withKey key: Data, iv: Data) throws -> Data {
+    public func decrypt(data: Data, withKey key: Data, iv: Data, usePKCS7: Bool = true) throws -> Data {
         let outputSize = data.count + blockSize
-        return try crypt(kCCDecrypt, data, key, iv, outputSize)
+        return try crypt(kCCDecrypt, data, key, iv, outputSize, usePKCS7: usePKCS7)
     }
 
-    private func crypt(_ op: Int, _ message: Data, _ key: Data, _ iv: Data, _ outputSize: Int) throws -> Data {
+    private func crypt(_ op: Int, _ message: Data, _ key: Data, _ iv: Data, _ outputSize: Int, usePKCS7: Bool) throws -> Data {
 
         guard iv.count == blockSize else {
             throw CryptoError.illegalParameter
@@ -135,7 +139,7 @@ extension Cryptor {
 
             CCCrypt(CCOperation(op),
                     self.algorithm,
-                    CCOptions(kCCOptionPKCS7Padding),
+                    usePKCS7 ? CCOptions(kCCOptionPKCS7Padding) : 0,
                     UnsafeRawPointer(keyPtr), self.keySize,
                     UnsafeRawPointer(iVPtr),
                     UnsafeRawPointer(messagePtr), message.count,
@@ -147,7 +151,7 @@ extension Cryptor {
         if let error = CryptoError(status: result) {
 
             if error == .bufferTooSmall {
-                return try crypt(op, message, key, iv, dataOutMoved)
+                return try crypt(op, message, key, iv, dataOutMoved, usePKCS7: usePKCS7)
             }
 
             throw error

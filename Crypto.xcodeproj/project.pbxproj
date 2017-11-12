@@ -38,7 +38,6 @@
 		552A72411FB466F400190AB7 /* HashTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72401FB466F400190AB7 /* HashTestData.swift */; };
 		552A72421FB466F400190AB7 /* HashTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72401FB466F400190AB7 /* HashTestData.swift */; };
 		552A72431FB466F400190AB7 /* HashTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72401FB466F400190AB7 /* HashTestData.swift */; };
-		552A72451FB46EDB00190AB7 /* SymmetricKeyWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72441FB46EDB00190AB7 /* SymmetricKeyWrap.swift */; };
 		552A72461FB46EDB00190AB7 /* SymmetricKeyWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72441FB46EDB00190AB7 /* SymmetricKeyWrap.swift */; };
 		552A72471FB46EDB00190AB7 /* SymmetricKeyWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72441FB46EDB00190AB7 /* SymmetricKeyWrap.swift */; };
 		552A72481FB46EDB00190AB7 /* SymmetricKeyWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72441FB46EDB00190AB7 /* SymmetricKeyWrap.swift */; };
@@ -62,6 +61,7 @@
 		552A72661FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72651FB5E0C200190AB7 /* SymmetricTestData.swift */; };
 		552A72671FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72651FB5E0C200190AB7 /* SymmetricTestData.swift */; };
 		552A72681FB5E0C200190AB7 /* SymmetricTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72651FB5E0C200190AB7 /* SymmetricTestData.swift */; };
+		552A726C1FB7347500190AB7 /* SymmetricKeyWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552A72441FB46EDB00190AB7 /* SymmetricKeyWrap.swift */; };
 		553278A41FB1AB05009320F3 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5562B4BB1FB08BB1000E0F88 /* HMAC.swift */; };
 		553278B81FB1ABA0009320F3 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5562B4BB1FB08BB1000E0F88 /* HMAC.swift */; };
 		553278BF1FB1ABC4009320F3 /* Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 5562B4971FB087FE000E0F88 /* Crypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -642,9 +642,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5562B4BC1FB08BB1000E0F88 /* HMAC.swift in Sources */,
+				552A726C1FB7347500190AB7 /* SymmetricKeyWrap.swift in Sources */,
 				552A721C1FB439E400190AB7 /* Digest.swift in Sources */,
 				552A722F1FB445B500190AB7 /* KeyDerivation.swift in Sources */,
-				552A72451FB46EDB00190AB7 /* SymmetricKeyWrap.swift in Sources */,
 				552A72611FB5CC7900190AB7 /* Crypto+Unsafe.swift in Sources */,
 				552A72521FB481AB00190AB7 /* Cryptor.swift in Sources */,
 				552A72211FB43DE000190AB7 /* Random.swift in Sources */,
@@ -1051,6 +1051,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = $PROJECT_DIR/modules/ios;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Crypto.Crypto-iOS";
 				PRODUCT_NAME = Crypto;
@@ -1082,6 +1083,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = $PROJECT_DIR/modules/ios;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Crypto.Crypto-iOS";
 				PRODUCT_NAME = Crypto;
